@@ -1,0 +1,18 @@
+<h1>Stored Obituaries</h1>
+
+<ul>
+	{% for item in all %}
+	<strong>{{ item }}</strong><br/>
+
+	<li>date_of_birth: {{ item.date_of_birth }}</li>
+	<li>date_of_death: {{ item.date_of_death }}</li>
+	<li>content: {{ item.content }}</li>
+	<li>author: {{ item.author }}</li>
+	<li>slug: {{ item.slug }}</li>
+	<br/><hr>
+
+{% endfor %}
+</ul>
+
+
+

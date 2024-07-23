@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <title>feedback form</title>
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "header">
+                <h2>OBITUARY FORM</h2>
+            </div>
+            <form action = "{% url 'home' %}" method = "POST" class = "form" id = "form" name = "obituary" onsubmit = "return validateform()">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <div class = "form-control">
+                    Name: <input type = "text"  placeholder = "Enter the name" name = "name"/>                    
+                </div>
+
+                <div class = "form-control">
+                    Date of Birth: <input type = "date"  placeholder = "Enter the DOB" name = "dob"/>                    
+                </div>
+
+                <div class = "form-control">
+                    Date of Death: <input type = "date"  placeholder = "Enter the DOD" name = "dod"/>                    
+                </div>
+
+                <div class = "form-control">
+                    <label for = "content">Content: </label><br>
+
+                    <textarea name = "content" placeholder = "Type here..." id = "content" rows = "5" cols = "50"></textarea>
+                                      
+                </div>
+
+                <div class = "form-control">
+                   Author: <input type = "text"  placeholder = "Enter your name" name = "author"/>                    
+                </div>
+
+               <button type = "submit">Submit</button>
+
+            </form>
+        </div>
+
+        <style>
+
+            body{
+                display:flex;
+                align-items: center;
+                justify-content:center;
+                font-family:Arial, Helvetica, sans-serif;
+                font-size:larger;
+                margin:0%;
+                background-color: aliceblue;
+            }
+
+            .container{
+                background-color:azure;
+                border-radius: 10px;
+                box-shadow:rgb(242, 240, 229);
+                width: 500px;
+                max-width: 100%;
+                overflow:hidden;
+
+            }
+
+            .header h2{
+                margin: 0;         
+             }
+    
+             .form{
+                padding: 30px 40px;
+             }
+    
+             .form-control{
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                position: relative;
+             }
+
+             .form-control label{
+                display: inline-block;
+                margin-bottom: 5px;
+             }
+    
+             .form-control input{
+                border: 2px solid #f0f0f0;
+                border-radius: 4px;
+                display: block;
+                padding: 10px;
+                font-size: 20px;
+                font-family: inherit;
+                width: 100%;
+             }
+
+             .form-control i {
+                visibility: hidden;
+                position: absolute;
+                top: 40px;
+                right: 10px;
+             }
+
+             .form button {
+                background-color: rgb(22, 179, 236);
+                border:2px#f0f0f0;
+                display: block;
+                width: 100%;
+                padding: 10px;
+                font-size: 15px;
+                font-family: inherit;
+             }
+
+
+        </style>
+
+
+        <script>
+            function validateform()
+            { 
+            var name=document.obituary.name.value; 
+             
+            if (name==null || name=="")
+            { 
+             alert("Name can't be blank"); 
+             return false; 
+            }
+
+            var dob=document.obituary.dob.value; 
+             
+            if (dob==null || dob=="")
+            { 
+             alert("DaTE of birth can't be blank"); 
+             return false; 
+            }
+
+            var dod=document.obituary.dod.value; 
+             
+            if (dod==null || dod=="")
+            { 
+             alert("Date of Death can't be blank"); 
+             return false; 
+            }
+
+            var content=document.obituary.content.value; 
+             
+            if (content==null || content=="")
+            { 
+             alert("Content can't be blank"); 
+             return false; 
+            }
+
+            var author=document.obituary.author.value; 
+             
+            if (author==null || author=="")
+            { 
+             alert("Author can't be blank"); 
+             return false; 
+            }
+            }  
+
+        </script>
+    </body>
+</html>
